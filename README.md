@@ -1,12 +1,5 @@
 # portfolioTracker
 
-## Team:
-
-- Monica
-- Moony
-- Shav
-- Akash
-
 ## General Purpose of the App:
 
 Allow users the ability to track their portfolio, with their chosen stocks, monitoring the individual price changes, returning their profit/loss on their investments, trace the movement of their individual holdings and get a general idea of how their portfolio is doing.
