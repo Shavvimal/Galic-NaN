@@ -28,12 +28,14 @@ module.exports = class Users {
     return new Promise(async (resolve, reject) => {
       try {
         const result = await db.query(
-          "SELECT buy_id, ticker, fee, buy_level, num_shares, stored_price, date_of_purchase FROM buys WHERE user_id = $1",
+          "SELECT buy_id, name, sector, ticker, fee, buy_level, num_shares, stored_price, date_of_purchase FROM buys WHERE user_id = $1",
           [id]
         );
         const buys = result.rows.map((s) => ({
           id: s.buy_id,
           ticker: s.ticker,
+          name: s.name,
+          sector: s.sector,
           fee: s.fee,
           buy_level: s.buy_level,
           num_shares: s.num_shares,
@@ -41,12 +43,14 @@ module.exports = class Users {
           date_of_purchase: s.date_of_purchase
         }));
         const result2 = await db.query(
-          "SELECT id, ticker, fee, buy_level, num_shares, stored_price, date_of_purchase FROM sells WHERE user_id = $1",
+          "SELECT id, name, sector, ticker, fee, buy_level, num_shares, stored_price, date_of_purchase FROM sells WHERE user_id = $1",
           [id]
         );
         const sells = result2.rows.map((s) => ({
           id: s.id,
           ticker: s.ticker,
+          name: s.name,
+          sector: s.sector,
           fee: s.fee,
           buy_level: s.buy_level,
           num_shares: s.num_shares,
@@ -66,10 +70,8 @@ module.exports = class Users {
     return new Promise(async (resolve, reject) => {
       try {
         let userData = await db.query(
-
           "INSERT INTO users (name, password, email) VALUES ($1,$2,$3) RETURNING *;",
           [data.name,data.password,data.email]
-
         );
         let user = new Users(userData.rows[0]);
         resolve(user);
@@ -91,7 +93,7 @@ module.exports = class Users {
         let user = new Users(userEmail.rows[0]);
         resolve(user);
       } catch (err) {
-        reject("User Email not found - may be creating");
+        reject("User Email not found");
       }
     });
   }

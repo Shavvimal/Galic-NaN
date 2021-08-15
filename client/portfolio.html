@@ -212,7 +212,7 @@
               <th class="p-3">Sell</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="holdings">
 
             <tr class="bg-indigo-50">
 
@@ -1536,7 +1536,7 @@
             <th class="p-3">Delete</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="pastHoldings">
 
           <tr class="bg-indigo-50">
 
@@ -1878,43 +1878,43 @@
 
             <div class="flex flex-col pt-4">
               <label for="Stock-Ticker" class="text-lg">Stock Ticker</label>
-              <input id="Stock-Ticker" style="text-transform:uppercase" placeholder="GOOG" class="shadow border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
+              <input id="Stock-Ticker"  name="ticker" style="text-transform:uppercase" placeholder="GOOG" class="shadow border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
                         focus:border">
             </div>
 
             <div class="flex flex-col pt-4">
               <label for="Name" class="text-lg">Name</label>
-              <input id="Name" placeholder="Alphabet Inc." class="shadow   border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
+              <input id="Name" name='name' placeholder="Alphabet Inc." class="shadow   border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
                         focus:border">
             </div>
 
             <div class="flex flex-col pt-4">
               <label for="Sector" class="text-lg">Sector</label>
-              <input id="Sector" placeholder="Communication Services" class="shadow   border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
+              <input id="Sector" name ='sector' placeholder="Communication Services" class="shadow   border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
                         focus:border">
             </div>
 
             <div class="flex flex-col pt-4">
-              <label for="Fees" class="text-lg">Fees ($)</label>
-              <input type="number" min="0" id="Fees" placeholder="10" class="shadow   border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
+              <label for="Fees"  class="text-lg">Fees ($)</label>
+              <input type="number" name="fee" min="0" id="Fees" placeholder="10" class="shadow   border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
                         focus:border">
             </div>
 
             <div class="flex flex-col pt-4">
               <label for="Fees" class="text-lg">Quantity</label>
-              <input type="number" min="0" id="quantity" placeholder="20" class="shadow   border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
+              <input type="number" name="num_shares" min="0" id="quantity" placeholder="20" class="shadow   border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
                         focus:border">
             </div>
 
             <div class="flex flex-col pt-4">
               <label for="Fees" class="text-lg">Unit/Share Price ($)</label>
-              <input type="number" min="0" id="sharePrice" placeholder="2,727.63" step=".0001" class=" shadow   border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
+              <input type="number" name="buy_level" min="0" id="sharePrice" placeholder="2,727.63" step=".0001" class=" shadow   border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
                         focus:border">
             </div>
 
             <div class="flex flex-col pt-4">
               <label for="Date" class="text-lg">Date of Purchase</label>
-              <input type="date" id="Dateform" class="shadow border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
+              <input type="date" name="date_of_purchase" id="Dateform" class="shadow border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
                         focus:border">
             </div>
 
@@ -1954,9 +1954,9 @@
           <div id="Yahoo" class="hidden">
 
             <div> 
-<form id="yahoo-form"  "> <label for="Tickersearch" class="text-lg">Search Ticker: </label>
+<form id="yahoo-form"  > <label for="Tickersearch" class="text-lg">Search Ticker: </label>
   <div class="flex justify-center h-14">
-  <input id="StockTickersearch" style="text-transform:uppercase" placeholder="GOOG" class="shadow border rounded-md w-full px-3 text-gray-700 leading-tight outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
+  <input id="StockTickersearch"  placeholder="Enter ticker" class="shadow border rounded-md w-full px-3 text-gray-700 leading-tight outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
   focus:border">               <input id="submitbtnyahoo" type="submit" onclick="hideautofill()" value="Autofill"
   class=" text-white bg-indigo-500 rounded-full focus:bg-indigo-600 w-auto px-6 font-bold text-lg p-2 ml-6 "> </div> </form>
 

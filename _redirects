@@ -1,0 +1,4 @@
+http://localhost:5000/ http://13.59.11.193:5000/ 200!
+http://localhost:5000/buys http://13.59.11.193:5000/buys 200!
+http://localhost:5000/auth/login http://13.59.11.193:5000/login 200!
+http://localhost:5000/auth/register http://13.59.11.193:5000/register 200!

@@ -3,10 +3,12 @@ DROP TABLE IF EXISTS sells;
 CREATE TABLE sells (
     id serial PRIMARY KEY,
     ticker VARCHAR(10) NOT NULL,
-    fee int,
-    buy_level int NOT NULL,
-    num_shares int NOT NULL,
-    stored_price int NOT NULL,
+    name VARCHAR(200),
+    sector VARCHAR(100),
+    fee double precision,
+    buy_level double precision NOT NULL,
+    num_shares double precision NOT NULL,
+    stored_price double precision NOT NULL,
     date_of_purchase TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    user_id int
+    user_id double precision NOT NULL
 );

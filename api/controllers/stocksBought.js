@@ -20,6 +20,7 @@ async function show(req, res) {
 
 async function create(req, res) {
   try {
+    console.log(req.body)
     const stockBought = await StocksBought.create(req.body);
     res.status(201).json(stockBought);
   } catch (err) {

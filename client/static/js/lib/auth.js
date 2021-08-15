@@ -38,7 +38,7 @@ function login(token){
     console.log(user);
     localStorage.setItem("token", token);
     localStorage.setItem("username", user.username);
-    localStorage.setItem("userEmail", user.email);
+    localStorage.setItem("userid", user.id);
     window.location = "./portfolio.html";
 }
 

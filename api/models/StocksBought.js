@@ -49,51 +49,44 @@ class StocksBought {
 
   static async create(buyData) {
     return new Promise(async (resolve, reject) => {
+      console.log(buyData);
       
       try {
         if(!buyData.date_of_purchase){
-          const {
-            ticker,
-            fee,
-            buy_level,
-            num_shares,
-            stored_price,
-            user_id
-          } = buyData;
+          console.log(buyData)
           let result = await db.query(
-            `INSERT INTO buys (ticker, fee, buy_level, num_shares, stored_price,user_id) VALUES ($1,$2,$3,$4,$5,$6) RETURNING buy_id`,
+            `INSERT INTO buys (ticker,name, sector, fee, buy_level, num_shares, stored_price,user_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING buy_id`,
             [
-              ticker,
-              fee,
-              buy_level,
-              num_shares,
-              stored_price,
-              user_id
+              buyData.ticker,
+              buyData.name,
+              buyData.sector,
+              buyData.fee,
+              buyData.buy_level,
+              buyData.num_shares,
+              buyData.buy_level,
+              buyData.user_id
             ]
           );
+          console.log(result)
           resolve(result.rows[0]);
         }
         else{
-            const {
-              ticker,
-              fee,
-              buy_level,
-              num_shares,
-              stored_price,
-              user_id, date_of_purchase
-            } = buyData;
+          console.log(buyData);
             let result = await db.query(
-              `INSERT INTO buys (ticker, fee, buy_level, num_shares, stored_price, user_id, date_of_purchase) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING buy_id`,
+              `INSERT INTO buys (ticker,name, sector, fee, buy_level, num_shares, stored_price, user_id, date_of_purchase) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9::timestamp) RETURNING buy_id`,
               [
-                ticker,
-                fee,
-                buy_level,
-                num_shares,
-                stored_price,
-                user_id,
-                date_of_purchase
+                buyData.ticker,
+                buyData.name,
+                buyData.sector,
+                buyData.fee,
+                buyData.buy_level,
+                buyData.num_shares,
+                buyData.buy_level,
+                buyData.user_id,
+                buyData.date_of_purchase
               ]
             );
+            console.log(result)
             resolve(result.rows[0]);
         }
       } catch (err) {
